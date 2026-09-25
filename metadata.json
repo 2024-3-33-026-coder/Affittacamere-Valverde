@@ -1,0 +1,6 @@
+{
+  "name": "Affittacamere Valverde",
+  "description": "An editorial boutique hospitality website for Affittacamere Valverde in Loc. Vessus, Italy, featuring peaceful stays, pool, breakfast, and sustainable hospitality.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

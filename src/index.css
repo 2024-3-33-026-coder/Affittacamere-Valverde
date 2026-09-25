@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --color-ivory: #F7F4EE;
+  --color-ivory-light: #FBF9F5;
+  --color-stone-muted: #EBE5DB;
+  --color-olive: #3D4833;
+  --color-olive-dark: #273020;
+  --color-olive-deep: #1A2115;
+  --color-terracotta: #A8583B;
+  --color-terracotta-soft: #C27457;
+  --color-charcoal: #181715;
+  --color-charcoal-card: #201E1B;
+  --color-ochre: #C49A45;
+}
+
+/* Global resets & overflow prevention */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Mobile & Desktop navigation responsive utilities */
+@media (max-width: 767px) {
+  .desktop-nav-item {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-nav-trigger {
+    display: none !important;
+  }
+  .mobile-menu-overlay {
+    display: none !important;
+  }
+}
+
+/* Restrained, editorial mobile menu animation */
+@keyframes menuOverlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes menuLinkReveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-menu-overlay {
+  animation: menuOverlayFadeIn 0.25s ease-out forwards;
+}
+
+.animate-menu-item {
+  animation: menuLinkReveal 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+}
+
+/* Base typography */
+body {
+  font-family: var(--font-sans);
+  background-color: #F7F4EE;
+  color: #1C1917;
+}
+
+h1, h2, h3, .font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Subtle editorial film grain overlay */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.038;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+@media (max-width: 768px) {
+  .grain-overlay {
+    opacity: 0.025;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F4EE;
+}
+::-webkit-scrollbar-thumb {
+  background: #C8C0B2;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8F8778;
+}
